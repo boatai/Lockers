@@ -5,28 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Safe's</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css.map">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        function unlock(id) {
+            axios({
+                method: 'post',
+                url: 'http://vps1.nickforall.nl:6123/packages/'+id+'/unlock'
+            });
+        }
+        function lock(id) {
+            axios({
+                method: 'post',
+                url: 'http://vps1.nickforall.nl:6123/packages/'+id+'/lock'
+            });
+        }
+    </script>
+    <style>
+        body {
+            text-align: center;
+            padding-top: 60px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Safe 1</h2>
-    <form action="http://vps1.nickforall.nl:6123/packages/5ac33c9c20ecf537e82c4ac2/unlock" method="post">
-        <button type="submit">Open</button>
-    </form>
-    <form action="http://vps1.nickforall.nl:6123/packages/5ac33c9c20ecf537e82c4ac2/lock" method="post">
-        <button type="submit">Close</button>
-    </form>
-    <h2>Safe 2</h2>
-    <form action="http://vps1.nickforall.nl:6123/packages/5ac33caf67823c38aef4e561/unlock" method="post">
-        <button type="submit">Open</button>
-    </form>
-    <form action="http://vps1.nickforall.nl:6123/packages/5ac33caf67823c38aef4e561/lock" method="post">
-        <button type="submit">Close</button>
-    </form>
-    <h2>Safe 3</h2>
-    <form action="http://vps1.nickforall.nl:6123/packages/5ac33d20b61c1a3d3a50d439/unlock" method="post">
-        <button type="submit">Open</button>
-    </form>
-    <form action="http://vps1.nickforall.nl:6123/packages/5ac33d20b61c1a3d3a50d439/lock" method="post">
-        <button type="submit">Close</button>
-    </form>
+    <h1 class="title is-1">boat.ai</h1>
+    <h2 class="title is-2">Safe 1</h2>
+    <div class="buttons has-addons is-centered">
+        <span class="button is-success" onclick="unlock('5ac33c9c20ecf537e82c4ac2')">Unlock</span>
+        <span class="button is-danger" onclick="lock('5ac33c9c20ecf537e82c4ac2')">Lock</span>
+    </div>
+    
+    <h2 class="title is-2">Safe 2</h2>
+    <div class="buttons has-addons is-centered">
+        <span class="button is-success" onclick="unlock('5ac33caf67823c38aef4e561')">Unlock</span>
+        <span class="button is-danger" onclick="lock('5ac33caf67823c38aef4e561')">Lock</span>
+    </div>
+
+    <h2 class="title is-2">Safe 3</h2>
+    <div class="buttons has-addons is-centered">
+        <span class="button is-success" onclick="unlock('5ac33d20b61c1a3d3a50d439')">Unlock</span>
+        <span class="button is-danger" onclick="lock('5ac33d20b61c1a3d3a50d439')">Lock</span>
+    </div>
 </body>
 </html>
